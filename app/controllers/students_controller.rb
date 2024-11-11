@@ -2,14 +2,14 @@ class StudentsController < ApplicationController
   def index
     @students = Student.all.order({ :created_at => :desc })
 
-    render({ :template => "students/index" })
+    render({ :template => "student_templates/index" })
   end
 
   def show
     the_id = params.fetch("path_id")
     @student = Student.where({:id => the_id }).at(0)
 
-    render({ :template => "students/show" })
+    render({ :template => "student_templates/show" })
   end
 
   def create
